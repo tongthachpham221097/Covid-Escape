@@ -425,7 +425,9 @@ MonoBehaviour:
   rb2d: {fileID: 299246231}
   velocity: {x: 0, y: 0}
   speedHorizontal: 0.5
-  speedVertical: 2
+  speedVertical: 5
+  maxPlayerPosY: 4.5
+  minPlayerPosY: -4.2
 --- !u!1 &1535763590
 GameObject:
   m_ObjectHideFlags: 0
