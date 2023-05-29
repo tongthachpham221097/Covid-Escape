@@ -1,35 +1,44 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
-public class PlayerMovement : LoboBehaviour
+public class PlayerMovement : BaseMovement
 {
-    [SerializeField] protected Rigidbody rb;
-    [SerializeField] protected Vector3 velocity = new Vector3(0f, 0f,0f);
-    [SerializeField] protected float autoSpeedRight = 0.1f;
-    [SerializeField] protected float speedVertical = 0.5f;
-    protected override void LoadComponents()
+    [SerializeField] private float maxPlayerPosY = 4.5f;
+    [SerializeField] private float minPlayerPosY = -4.2f;
+
+    protected override void ResetValue()
     {
-        this.rb = GetComponentInParent<Rigidbody>();
-        this.rb.useGravity = false;
+        base.ResetValue();
+        this.speedHorizontal = 0.5f;
+        this.speedVertical = 5f;
     }
-    protected virtual void FixedUpdate()
+    protected virtual void Update()
     {
         this.UpdatePosition();
     }
     protected virtual void UpdatePosition()
     {
-        this.PlayerAutoRunRight();
         this.PlayerVerticalMovement();
-        this.rb.MovePosition(this.rb.position + this.velocity * Time.fixedDeltaTime);
+        this.PlayerAutoRunRight();
+        this.rb2d.velocity = this.velocity;
     }
     protected virtual void PlayerAutoRunRight()
     {
-        this.velocity.x = this.autoSpeedRight;
-        this.autoSpeedRight += transform.position.x / 1000;
+        this.velocity.x = this.speedHorizontal + transform.position.x / 1000;
     }
     protected virtual void PlayerVerticalMovement()
     {
+
+        float parentPosY = transform.parent.position.y;
+        float clampedPosY = Mathf.Clamp(parentPosY, minPlayerPosY, maxPlayerPosY);
+
         this.velocity.y = this.speedVertical * InputManager.Instance.pressVertical;
+        
+        if(this.velocity.y > maxPlayerPosY) this.velocity.y = maxPlayerPosY;
+        if(this.velocity.y < minPlayerPosY) this.velocity.y = minPlayerPosY;
+
+        transform.parent.position = new Vector3(transform.parent.position.x, clampedPosY, transform.parent.position.z);
     }
 }

@@ -2,11 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(Rigidbody2D))]
 public class PlayerCtrl : LoboBehaviour
 {
-    protected override void LoadComponents()
-    {
-        base.LoadComponents();
-    }
+    
 }

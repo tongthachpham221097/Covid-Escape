@@ -200,22 +200,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e16ebff8b7f557458bed352daabcb62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!54 &299246231
-Rigidbody:
+--- !u!50 &299246231
+Rigidbody2D:
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 299246228}
-  serializedVersion: 2
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
   m_Mass: 1
-  m_Drag: 0
+  m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
   m_Interpolate: 0
-  m_Constraints: 0
+  m_SleepingMode: 1
   m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -417,10 +422,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59372685cc7d77c45870cee48f31bbae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 299246231}
-  velocity: {x: 0, y: 0, z: 0}
-  autoSpeedRight: 0.1
-  speedVertical: 0.5
+  rb2d: {fileID: 299246231}
+  velocity: {x: 0, y: 0}
+  speedHorizontal: 0.5
+  speedVertical: 2
 --- !u!1 &1535763590
 GameObject:
   m_ObjectHideFlags: 0
@@ -446,7 +451,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1535763590}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.42, y: 0.26, z: 0}
+  m_LocalPosition: {x: -7.42, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 299246229}
