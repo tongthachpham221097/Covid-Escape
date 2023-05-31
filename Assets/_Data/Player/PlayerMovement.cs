@@ -5,8 +5,8 @@ using UnityEngine.UIElements;
 
 public class PlayerMovement : BaseMovement
 {
-    [SerializeField] private float maxPlayerPosY = 4.5f;
-    [SerializeField] private float minPlayerPosY = -4.2f;
+    [SerializeField] public float maxPlayerPosY = 4.5f;
+    [SerializeField] public float minPlayerPosY = -4.2f;
 
     protected override void ResetValue()
     {
@@ -26,7 +26,7 @@ public class PlayerMovement : BaseMovement
     }
     protected virtual void PlayerAutoRunRight()
     {
-        this.velocity.x = this.speedHorizontal + transform.position.x / 1000;
+        this.velocity.x += this.speedHorizontal * Time.deltaTime;
     }
     protected virtual void PlayerVerticalMovement()
     {
