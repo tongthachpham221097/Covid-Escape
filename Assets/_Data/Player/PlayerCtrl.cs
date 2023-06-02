@@ -29,12 +29,12 @@ public class PlayerCtrl : LoboBehaviour
     {
         if (this.playerCollider != null) return;
         this.playerCollider = GetComponentInChildren<PlayerCollider>();
-        Debug.Log(transform.name + ": LoadPlayerCollider", gameObject);
+        Debug.LogWarning(transform.name + ": LoadPlayerCollider", gameObject);
     }
     protected virtual void LoadPlayerMovement()
     {
         if (this.playerMovement != null) return;
         this.playerMovement = GetComponentInChildren<PlayerMovement>();
-        Debug.Log(transform.name + ": LoadPlayerMovement", gameObject);
+        Debug.LogWarning(transform.name + ": LoadPlayerMovement", gameObject);
     }
 }
