@@ -6,8 +6,8 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider2D))]
 public class PlayerCtrl : LoboBehaviour
 {
-    private static PlayerCtrl instance;
-    public static PlayerCtrl Instance { get => instance; }
+    private static PlayerCtrl _instance;
+    public static PlayerCtrl Instance { get => _instance; }
 
     [SerializeField] protected PlayerCollider playerCollider;
     public PlayerCollider PlayerCollider { get => playerCollider; }
@@ -17,8 +17,8 @@ public class PlayerCtrl : LoboBehaviour
     protected override void Awake()
     {
         base.Awake();
-        if (PlayerCtrl.instance != null) Debug.LogError("only 1 PlayerCtrl allow to exist");
-        PlayerCtrl.instance = this;
+        if (PlayerCtrl._instance != null) Debug.LogError("only 1 PlayerCtrl allow to exist");
+        PlayerCtrl._instance = this;
     }
     protected override void LoadComponents()
     {

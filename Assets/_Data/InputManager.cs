@@ -4,17 +4,25 @@ using UnityEngine;
 
 public class InputManager : MonoBehaviour
 {
-    private static InputManager instance;
-    public static InputManager Instance { get => instance; }
+    private static InputManager _instance;
+    public static InputManager Instance { get => _instance; }
 
     [SerializeField] public float pressVertical;
+    [SerializeField] public float pressEsc;
+    
     protected virtual void Awake()
     {
-        if (InputManager.instance != null) Debug.LogError("only 1 InputManager allow to exist");
-        InputManager.instance = this;
+        if (InputManager._instance != null) Debug.LogError("only 1 InputManager allow to exist");
+        InputManager._instance = this;
     }
+
     protected virtual void FixedUpdate()
     {
         this.pressVertical = Input.GetAxis("Vertical");
+    }
+
+    private void Update()
+    {
+        this.pressEsc = Input.GetAxis("Cancel");
     }
 }
