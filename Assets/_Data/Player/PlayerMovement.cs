@@ -23,6 +23,7 @@ public class PlayerMovement : BaseMovement
         this.PlayerVerticalMovement();
         this.PlayerAutoRunRight();
         this.rb2d.velocity = this.velocity;
+        this.CheckPlayerPosition();
     }
     protected virtual void PlayerAutoRunRight()
     {
@@ -31,14 +32,17 @@ public class PlayerMovement : BaseMovement
     protected virtual void PlayerVerticalMovement()
     {
 
-        float parentPosY = transform.parent.position.y;
-        float clampedPosY = Mathf.Clamp(parentPosY, minPlayerPosY, maxPlayerPosY);
+        //float parentPosY = transform.parent.position.y;
+        //float clampedPosY = Mathf.Clamp(parentPosY, minPlayerPosY, maxPlayerPosY);
 
         this.velocity.y = this.speedVertical * InputManager.Instance.pressVertical;
-        
-        if(this.velocity.y > maxPlayerPosY) this.velocity.y = maxPlayerPosY;
-        if(this.velocity.y < minPlayerPosY) this.velocity.y = minPlayerPosY;
-
-        transform.parent.position = new Vector3(transform.parent.position.x, clampedPosY, transform.parent.position.z);
+        //transform.parent.position = new Vector3(transform.parent.position.x, clampedPosY, transform.parent.position.z);
+    }
+    protected virtual void CheckPlayerPosition()
+    {
+        Vector3 Pos = transform.parent.position;
+        if(Pos.y > this.maxPlayerPosY) Pos.y = this.maxPlayerPosY;
+        if (Pos.y < this.minPlayerPosY) Pos.y = this.minPlayerPosY;
+        transform.parent.position = Pos;
     }
 }
