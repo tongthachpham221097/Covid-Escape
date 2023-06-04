@@ -9,8 +9,11 @@ public class UICtrl : LoboBehaviour
 
     public GameObject pauseMenu;
     public GameObject mainMenu;
-    public GameObject scoreText;
     public GameObject optionMenu;
+    public GameObject gameOverMenu;
+
+    public ScoreText scoreText;
+    public ScoreTextGameOver scoreTextGameOver;
     protected override void Awake()
     {
         if (UICtrl._instance != null) Debug.LogError("only 1 UIManager allow to exist");
@@ -24,6 +27,8 @@ public class UICtrl : LoboBehaviour
         this.LoadMainMenu();
         this.LoadScoreText();
         this.LoadOptionMenu();
+        this.LoadGameOverMenu();
+        this.LoadScoreTextGameOver();
     }
 
     void LoadPauseMenu()
@@ -43,7 +48,7 @@ public class UICtrl : LoboBehaviour
     void LoadScoreText()
     {
         if (this.scoreText != null) return;
-        this.scoreText = GameObject.Find("ScoreText");
+        this.scoreText = GetComponentInChildren<ScoreText>();
         Debug.LogWarning(transform.name + ": LoadScoreText", gameObject);
     }
 
@@ -52,5 +57,19 @@ public class UICtrl : LoboBehaviour
         if (this.optionMenu != null) return;
         this.optionMenu = GameObject.Find("OptionMenu");
         Debug.LogWarning(transform.name + ": LoadOptionMenu", gameObject);
+    }
+
+    void LoadGameOverMenu()
+    {
+        if (this.gameOverMenu != null) return;
+        this.gameOverMenu = GameObject.Find("GameOverMenu");
+        Debug.LogWarning(transform.name + ": LoadGameOverMenu", gameObject);
+    }
+
+    void LoadScoreTextGameOver()
+    {
+        if (this.scoreTextGameOver != null) return;
+        this.scoreTextGameOver = GetComponentInChildren<ScoreTextGameOver>();
+        Debug.LogWarning(transform.name + ": LoadScoreTextGameOver", gameObject);
     }
 }

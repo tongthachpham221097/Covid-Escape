@@ -11,7 +11,7 @@ public class PlayerMovement : BaseMovement
     protected override void ResetValue()
     {
         base.ResetValue();
-        this.speedHorizontal = 0.5f;
+        this.speedHorizontal = 0.01f;
         this.speedVertical = 5f;
     }
     protected virtual void Update()

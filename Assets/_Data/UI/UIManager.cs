@@ -10,7 +10,8 @@ public class UIManager : MonoBehaviour
     {
         UICtrl.Instance.pauseMenu.SetActive(false);
         UICtrl.Instance.optionMenu.SetActive(false);
-        UICtrl.Instance.scoreText.SetActive(false);
+        UICtrl.Instance.scoreText.gameObject.SetActive(false);
+        UICtrl.Instance.gameOverMenu.SetActive(false);
         ObstacleSpawner.Instance.gameObject.SetActive(false);
     }
 

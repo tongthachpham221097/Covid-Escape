@@ -14,9 +14,22 @@ public class GameManager : LoboBehaviour
         if (GameManager._instance != null) Debug.LogError("only 1 GameManager allow to exist");
         GameManager._instance = this;
     }
-    
+
+    private void Update()
+    {
+        if(PlayerCtrl.Instance.PlayerCollider.isGameOver == true) this.GameOver();
+    }
+
     public virtual  void RestartGame()
     {
         SceneManager.LoadScene(0);
+    }
+
+    public virtual void GameOver()
+    {
+        UICtrl.Instance.scoreTextGameOver.SetTextGameOver();
+        UICtrl.Instance.gameOverMenu.SetActive(true);
+        UICtrl.Instance.scoreText.gameObject.SetActive(false);
+        ObstacleSpawner.Instance.gameObject.SetActive(false);
     }
 }
