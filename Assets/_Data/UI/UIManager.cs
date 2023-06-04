@@ -5,6 +5,15 @@ using UnityEngine;
 public class UIManager : MonoBehaviour
 {
     [SerializeField] protected bool isPausing = false;
+
+    public virtual void Start()
+    {
+        UICtrl.Instance.pauseMenu.SetActive(false);
+        UICtrl.Instance.optionMenu.SetActive(false);
+        UICtrl.Instance.scoreText.SetActive(false);
+        ObstacleSpawner.Instance.gameObject.SetActive(false);
+    }
+
     private void Update()
     {
         if (InputManager.Instance.pressEsc) this.CheckPauseMenu();

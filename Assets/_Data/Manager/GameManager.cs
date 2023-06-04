@@ -14,10 +14,7 @@ public class GameManager : LoboBehaviour
         if (GameManager._instance != null) Debug.LogError("only 1 GameManager allow to exist");
         GameManager._instance = this;
     }
-    public virtual void Start()
-    {
-        UICtrl.Instance.pauseMenu.SetActive(false);
-    }
+    
     public virtual  void RestartGame()
     {
         SceneManager.LoadScene(0);
