@@ -7,7 +7,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] protected bool isPausing = false;
     private void Update()
     {
-        if (InputManager.Instance.pressEsc != 0) this.CheckPauseMenu();
+        if (InputManager.Instance.pressEsc) this.CheckPauseMenu();
     }
     void CheckPauseMenu()
     {

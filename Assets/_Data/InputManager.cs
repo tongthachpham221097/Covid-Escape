@@ -8,7 +8,7 @@ public class InputManager : MonoBehaviour
     public static InputManager Instance { get => _instance; }
 
     [SerializeField] public float pressVertical;
-    [SerializeField] public float pressEsc;
+    [SerializeField] public bool pressEsc;
     
     protected virtual void Awake()
     {
@@ -23,6 +23,6 @@ public class InputManager : MonoBehaviour
 
     private void Update()
     {
-        this.pressEsc = Input.GetAxis("Cancel");
+        this.pressEsc = Input.GetButtonDown("Cancel");
     }
 }
