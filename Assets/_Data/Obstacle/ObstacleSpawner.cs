@@ -2,11 +2,21 @@ using UnityEngine;
 
 public class ObstacleSpawner : Spawner
 {
+    private static ObstacleSpawner _instance;
+    public static ObstacleSpawner Instance { get => _instance; }
+
     public static string obstacleOne = "prefab_1";
 
     [SerializeField] protected float randomDelay = 5f;
     [SerializeField] protected float randomTimer = 0f;
     [SerializeField] protected float spawnOffsetX = 20f;
+
+    protected override void Awake()
+    {
+        base.Awake();
+        if (ObstacleSpawner._instance != null) Debug.LogError("only 1 ObstacleSpawner allow to exist");
+        ObstacleSpawner._instance = this;
+    }
     protected virtual void FixedUpdate()
     {
         this.ObstacleSpawning();

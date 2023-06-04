@@ -8,6 +8,5 @@ public class PlayerCollider : LoboBehaviour
     protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
         this.isGameOver = true;
-        Time.timeScale = 0f;
     }
 }
