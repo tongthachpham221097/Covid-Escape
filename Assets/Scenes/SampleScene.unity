@@ -2313,6 +2313,8 @@ MonoBehaviour:
   speedVertical: 5
   maxPlayerPosY: 4.5
   minPlayerPosY: -4.2
+  timer: 0
+  delay: 0
 --- !u!1 &1020231514
 GameObject:
   m_ObjectHideFlags: 0
