@@ -23,7 +23,7 @@ public class VolumeSlider : BaseVolumeSlider
     {
         SetVolume(value);
         PlayerPrefs.SetFloat("Volume", value);
-        SetVolume(PlayerPrefs.GetFloat("Volume"));
+        //SetVolume(PlayerPrefs.GetFloat("Volume"));
     }
 
     private void SetVolume(float value)

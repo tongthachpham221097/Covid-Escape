@@ -35,6 +35,7 @@ public class GameManager : LoboBehaviour
     public virtual  void RestartGame()
     {
         SceneManager.LoadScene(0);
+        Time.timeScale = 1;
     }
 
     void StartingGame()
@@ -51,6 +52,7 @@ public class GameManager : LoboBehaviour
         PlayerCtrl.Instance.PlayerMovement.speedHorizontal = 0.5f;
         SoundManager.Instance.SoundBG.PlaySound();
         SoundManager.Instance.SoundStartGame.audioSource.mute = true;
+        InputManager.Instance.gameObject.SetActive(true);
     }
 
     public virtual void GameOver()

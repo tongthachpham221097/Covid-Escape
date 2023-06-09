@@ -22,6 +22,7 @@ public class UIManager : MonoBehaviour
         UICtrl.Instance.scoreText.gameObject.SetActive(false);
         UICtrl.Instance.gameOverMenu.SetActive(false);
         ObstacleSpawner.Instance.gameObject.SetActive(false);
+        InputManager.Instance.gameObject.SetActive(false); 
     }
 
     private void Update()
