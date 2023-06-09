@@ -44,7 +44,6 @@ public class Spawner : BaseSpawner
     {
         this.poolObjs.Add(obj);
         obj.gameObject.SetActive(false);
-        //this.spawnedCount--;
     }
     public virtual Transform GetPrefabByName(string prefabName)
     {
