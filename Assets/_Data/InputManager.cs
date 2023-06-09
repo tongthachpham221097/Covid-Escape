@@ -16,13 +16,9 @@ public class InputManager : MonoBehaviour
         InputManager._instance = this;
     }
 
-    protected virtual void FixedUpdate()
+    protected virtual void Update()
     {
         this.pressVertical = Input.GetAxis("Vertical");
-    }
-
-    private void Update()
-    {
         this.pressEsc = Input.GetButtonDown("Cancel");
     }
 }

@@ -49,8 +49,8 @@ public class ObstacleSpawner : Spawner
     }
     protected virtual float RamdomPositionY()
     {
-        float minPosY = PlayerCtrl.Instance.PlayerMovement.minPlayerPosY;
-        float maxPosY = PlayerCtrl.Instance.PlayerMovement.maxPlayerPosY;
+        float minPosY = PlayerCtrl.Instance.PlayerMovement.MinPlayerPosY;
+        float maxPosY = PlayerCtrl.Instance.PlayerMovement.MaxPlayerPosY;
         return Random.Range(minPosY, maxPosY);
     }
 }
