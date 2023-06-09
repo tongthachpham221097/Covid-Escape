@@ -38,11 +38,13 @@ public class UIManager : MonoBehaviour
     {
         UICtrl.Instance.pauseMenu.SetActive(true);
         this.isPausing = true;
+        Time.timeScale = 0f;
     }
     void DisabelPauseMenu()
     {
         UICtrl.Instance.pauseMenu.SetActive(false);
         this.isPausing = false;
+        Time.timeScale = 1f;
     }
     
 }
