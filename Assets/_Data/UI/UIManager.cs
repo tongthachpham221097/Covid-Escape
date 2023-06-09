@@ -4,9 +4,18 @@ using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
+    private static UIManager _instance;
+    public static UIManager Instance { get => _instance; }
+
     [SerializeField] protected bool isPausing = false;
 
-    public virtual void Start()
+    protected virtual void Awake()
+    {
+        if (UIManager._instance != null) Debug.LogError("only 1 InputManager allow to exist");
+        UIManager._instance = this;
+    }
+
+    public virtual void UIStartGame()
     {
         UICtrl.Instance.pauseMenu.SetActive(false);
         UICtrl.Instance.optionMenu.SetActive(false);
